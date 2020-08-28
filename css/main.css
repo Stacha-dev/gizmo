@@ -1,0 +1,318 @@
+/*
+main css
+lady gaga 4 ever
+*/
+
+
+
+/*
+import font
+*/
+@font-face {font-family: "Meduim"; src: url("/data/FKGrotesk-Medium.woff");}
+@font-face {font-family: "BoldItalic"; src: url("/data/FKGrotesk-BoldItalic.woff");}
+
+
+
+/*
+blokace pro vertikalni zarizeni
+*/
+@media (max-aspect-ratio: 1/1) {
+  .pg {display: none !important;}
+}
+#turnHorizontal {position: absolute; top: 50%; left: 50%; z-index: 999999; transform: translate(-50%, -50%); width: 40vw; height: 40vh; background: url('/data/turnHorizontal.png') center center no-repeat; background-size: contain; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);}
+
+
+
+/*
+main
+*/
+* {user-select: none; cursor: none !important;}
+html, body {padding: 0; margin: 0; font-family: "Medium", monospace; font-size: 3vh; background: white; overflow: hidden; width: 100vw; height: 100vh;}
+      body.mobile {position: absolute;}
+
+::selection {background: rgb(0, 255, 0);}
+
+* {scrollbar-width: thin; scrollbar-color: dark;}
+*::-webkit-scrollbar-track {background: transparent;}
+*::-webkit-scrollbar {width: 1vh; height: 1vh; background: transparent;}
+*::-webkit-scrollbar-thumb {background: black;}
+
+a, a:visited {color: black; text-decoration: underline;}
+a:hover {color: red;}
+
+h1, h2, h3 {margin: 0; padding: 0; font-family: "BoldItalic", monospace; font-weight: normal; font-style: normal;}
+p.action {pointer-events: all !important;}
+
+
+
+/*
+mobil
+*/
+.mobile .cursor {display: none !important;}
+.mobile .pg {height: 100% !important;}
+
+
+
+/*
+gizmo cursor
+*/
+.cursor {position: absolute; z-index: 99; pointer-events: none; top: 50%; left: 50%;}
+  #gizmo, #dot {transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); opacity: 0; position: absolute; transform: translate(-50%, -50%); pointer-events: none;}
+  #dot {width: 3vh; height: 3vh; background: white; border-radius: 50%;}
+  .cursor.hover #dot {width: 6vh; height: 6vh; animation: pulse infinite ease 2s; animation-delay: -1s;}
+    @keyframes pulse {
+      80% {transform: translate(-50%, -50%) scale(1);}
+      90% {transform: translate(-50%, -50%) scale(1.15);}
+      100% {transform: translate(-50%, -50%) scale(1);}
+    }
+  #gizmo {width: 20vh; height: 20vh; transform: translate(-50%, 0%) scale(2);}
+  #cube {width: 10vh; height: 10vh; transform-style: preserve-3d; transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(10vh); margin: auto; position: relative;}
+  #cube > div {position: absolute; transition: all 0.5s ease-in-out; width: 10vh; height: 10vh; float: left; overflow: hidden; border: 1vh solid transparent;}
+    #s1 {transform: rotatex(90deg) translateX(0) translateY(0) translateZ(5.62vh);}
+    #s2 {transform: rotateY(-90deg) translateX(0) translateY(0) translateZ(5.62vh); border-bottom: 0.25vh solid blue !important; border-left: 0.25vh solid red !important;}
+    #s3 {transform: translateX(0) translateY(0) translateZ(5.62vh);}
+    #s4 {transform: rotateY(90deg) translateX(0) translateY(0) translateZ(5.62vh);}
+    #s5 {transform: rotateY(180deg) translateX(0) translateY(0) translateZ(5.62vh); border-bottom: 0.25vh solid rgb(0,255,0) !important; border-right: 0.25vh solid red !important;}
+    #s6 {transform: rotateX(-90deg) translateX(0) translateY(0) translateZ(5.62vh); border-bottom: 0.25vh solid rgb(0,255,0) !important; border-left: 0.25vh solid blue !important;}
+.cursor.gizmo #gizmo, .cursor.dot #dot {opacity: 1 !important;}
+                      .cursor.dot {mix-blend-mode: exclusion;}
+                      .cursor.dot.red #dot {background: cyan !important;}
+                      .cursor.dot.blue #dot {background: yellow !important;}
+                      .cursor.dot.green #dot {background: magenta !important;}
+
+
+
+
+
+
+
+
+
+
+
+                          #pyramid {
+                              transform-origin: 50% 90% 0;
+                              transform: scale(0.2) rotateX(20deg) rotateY(40deg);
+                              position: absolute;
+                              transform-style: preserve-3d;
+                          }
+
+                          .base {
+                          position: absolute;
+                          width: 270px;
+                          height: 270px;
+                          background-color: rgba(147,81,166,.9);
+                          transform: rotateX(90deg) translateZ(-135px);
+                          opacity: .5;
+                          }
+
+                          #pyramid div:not(.base) {
+                              position: absolute;
+                              border-left: 135px solid transparent;
+                              border-right: 135px solid transparent;
+                              border-bottom: 270px solid;
+                              transform-origin: 135px 270px 0;
+                              opacity: .5;
+                          }
+
+                          #pyramid div.front {
+                          border-bottom-color: #e04545;
+                          transform: rotateY(0deg) translateZ(135px) rotateX(30deg);
+                          }
+
+                          #pyramid div.back {
+                          border-bottom-color: #ccaf5a;
+                          transform: rotateY(90deg) translateZ(135px) rotateX(30deg);
+                          }
+
+                          #pyramid div.right {
+                          border-bottom-color: #4ccfc8;
+                          transform: rotateY(270deg) translateZ(135px) rotateX(30deg);
+                          }
+
+                          #pyramid div.left {
+                          border-bottom-color: maroon;
+                          transform: rotateY(180deg) translateZ(135px) rotateX(30deg);
+                          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+grabber
+*/
+.grabber {/* cursor: grab !important; */ user-select: none !important;}
+.grabbed {/* cursor: grabbing !important; */}
+  .grabbed::-webkit-scrollbar-thumb {background: black !important;}
+
+
+
+/*
+loading + blinder
+*/
+#loading {position: fixed; z-index: 998; left: 0; top: 0; width: 100vw; height: 0.5vh; background: linear-gradient(to right, transparent 90%, blue 10%); background-size: 200% 100%; animation: loading 3s infinite cubic-bezier(0.25, 1, 0.5, 1); animation-direction: alternate;}
+#imgLoading {position: fixed; z-index: 999; background: rgb(0,255,0); text-align: center; width: 0; height: 0.5vh; left: 0; top: 0;}
+@keyframes loading {
+    0%   {background-position-x: 200%;}
+    100% {background-position-x: 90%;}
+}
+/* blinder ==> pri nacitani zaslepi vlozene html, aby se na nej nedalo klikat*/
+#blinder {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99;}
+
+
+
+
+/*
+general funkce na divy
+*/
+.fadeout {opacity: 0 !important; transform: translate(-50%, -50%) scale(0.9) !important;}
+.fadeup {opacity: 0 !important; transform: translate(-50%, -50%) scale(1.1) !important;}
+
+
+
+/*
+centered divs
+*/
+.center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(1); opacity: 1; transform-origin: center center;
+}
+
+
+
+/*
+homepage
+*/
+#logo {width: 70vw; height: 29vw; z-index: 10; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);}
+  #logo.red {background: url('/data/logoR.png') center center no-repeat; background-size: contain;}
+  #logo.blue {background: url('/data/logoB.png') center center no-repeat; background-size: contain;}
+  #logo.green {background: url('/data/logoG.png') center center no-repeat; background-size: contain;}
+#homebg {width: 100vw; height: 100vh; background: white;}
+
+.textSlider {width: 100vw; position: absolute; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); font-family: "BoldItalic", monospace;}
+  .textSlider div {display: table-cell; word-break: keep-all; white-space: nowrap; animation: textSlide 20s linear infinite reverse; animation-delay: -3s;}
+  @keyframes textSlide {
+    0% {transform: translateX(-50%);}
+    100% {transform: translateX(0%);}
+  }
+  .textSlider.hidden {bottom: -7vh !important;}
+
+#lista {height: 5vh; background: white; color: black; bottom: 0; left: 0; z-index: 3; padding: 1vh; font-size: 5vh; line-height: 5vh;}
+#aktuality {height: 2vh; background: #303030; color: white; bottom: 7vh; left: 0; z-index: 2; padding: 1vh; font-size: 2vh; line-height: 2vh;}
+#patka {position: absolute; bottom: 0; right: 0; height: 5vh; padding: 1vh 2vh; line-height: 5vh; font-size: 3vh; z-index: 20; background: white;}
+
+
+
+/*
+stranky
+setup pozicovani dle linku
+*/
+#content {z-index: 10;}
+#content, #about, #contact, #projects {overflow: hidden; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); position: absolute;}
+#content {width: 100vw; height: 100vh; margin: 0;}
+  #content.home {margin: 0;}
+  #content.about {margin-left: 70vw; margin-top: 0;}
+  #content.contact {margin-left: 0vh; margin-top: 50vh;}
+  #content.projects {margin-left: -100vw; margin-top: 0;}
+#about {width: 70vw; height: 100vh; margin: 0;}
+  #about.home {margin-left: -70vw; margin-top: 0;}
+  #about.about {margin: 0;}
+  #about.contact {margin-left: -70vw; margin-top: 50vh;}
+  #about.projects {margin-left: -170vw; margin-top: 0;}
+#contact {width: 100vw; height: 50vh;  margin: 0;}
+  #contact.home {margin-top: -50vh; margin-left: 0;}
+  #contact.about {margin-top: -50vh; margin-left: 70vw;}
+  #contact.contact {margin: 0;}
+  #contact.projects {margin-top: -50vh; margin-left: -100vw;}
+#projects {width: 100vw; height: 100vh; margin: 0;}
+  #projects.home {margin-left: 100vw; margin-top: 0;}
+  #projects.about {margin-left: 170vw; margin-top: 0;}
+  #projects.contact {margin-left: 100vw; margin-top: 50vh;}
+  #projects.projects {margin: 0;}
+
+
+
+/*
+navigace
+setup pozice
+*/
+.navig {background: green; opacity: 1; z-index: 25; position: absolute; position: absolute; pointer-events: all;}
+#projects .navigHome {left: 0; top: 0; height: 100vh; background: linear-gradient(-90deg, transparent 0%, rgba(0,255,0,1) 100%);}
+#content .navigAbout {left: 0; top: 0; height: 100vh; background: linear-gradient(-90deg, transparent 0%, rgba(0,0,255,1) 100%);}
+  #content .navigAbout.long {width: 30vw;} /* !important */
+#content .navigProjects {right: 0; top: 0; height: 100vh; background: linear-gradient(90deg, transparent 0%, rgba(0,255,0,1) 100%);}
+#content .navigContact {top: 0; left: 0; width: 100vw; z-index: 26; background: linear-gradient(0deg, transparent 0%, rgba(255,0,0,1) 100%);}
+  #content .navigContact.long {height: 50vh;} /* !important */
+  .long {opacity: 1 !important;}
+
+.button {opacity: 0; position: absolute; transform: translate(-50%, -50%) scale(1.2); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); width: 15vh; height: 15vh; text-align: center; line-height: 15vh; border-radius: 50%; border: 0.5vh solid black; z-index: 20; pointer-events: none;}
+  .buttonAbout {top: 50%; left: 10vw;}
+  .buttonContact {top: 15vh; left: 50%;}
+  .buttonProjects {top: 50%; right: 1vw;}
+.on {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+
+
+
+/*
+mobil menu
+*/
+.burger {z-index: 999; position: fixed; top: 5vh; left: 5vh; font-size: 5vh; color: black; padding: 5vh; background: gray;}
+  .mobilMenu {display: none; z-index: 998; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255,255,255,0.5);}
+  .mobilMenu ul {list-style: none; transform: translate(-50%, -50%); font-size: 10vh; margin: 0; text-align: center;}
+
+
+
+/*
+about
+*/
+#aboutBody {width: calc(70vw - 6vh); height: calc(100vh - 6vh); padding: 3vh; overflow-y: scroll; font-size: 4vh;}
+  #aboutBody::-webkit-scrollbar-thumb {background: blue;}
+
+
+
+/*
+contact
+*/
+#contactBody {width: calc(100vw - 6vh); height: calc(50vh - 3vh); padding: 3vh; padding-bottom: 0; overflow-x: scroll; font-size: 2vh;}
+  #contactBody::-webkit-scrollbar-thumb {background: red;}
+  .person {display: table-cell; min-width: 30vw; max-height: 30vh; padding: 2vh 4vh 0vh 0vh;}
+    .person h2 {font-size: 2vh; margin-top: 2vh;}
+  .head {position: sticky; top: 0; left: 0; width: calc(100vw - 6vh);}
+    .contactHeadder {float: left;}
+    .linksHeadder {float: right;}
+
+
+
+/*
+projekty
+*/
+/* ou maj gad */
