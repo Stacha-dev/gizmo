@@ -55,11 +55,18 @@ $(document).on('mousemove', function(e){
         break;
 
         case 'projects':
-          $('.navigHome').css({'width': range(ch.x, [0, win.w/100*50], [15, 0])+'vw', 'opacity': range(ch.x, [0, win.w/2], [100, 0])/100});
+          $('.navigHome').css({'width': range(ch.x, [0, win.w/100*20], [15, 0])+'vw', 'opacity': range(ch.x, [win.w/100*20, 0], [0, 100])/100});
+          $('.navigNextProject').css({'width': range(ch.x, [win.w/100*80, win.w], [0, 15])+'vw', 'opacity': range(ch.x, [win.w/100*80, win.w], [0, 100])/100});
         break;
 
       }
 
+
+      if (target.attr('class') == 'model') {
+        cursor.fadeOut();
+      } else {
+        cursor.fadeIn();
+      }
 
 
       /*

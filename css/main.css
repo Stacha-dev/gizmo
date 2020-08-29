@@ -8,8 +8,8 @@ lady gaga 4 ever
 /*
 import font
 */
-@font-face {font-family: "Meduim"; src: url("/data/FKGrotesk-Medium.woff");}
-@font-face {font-family: "BoldItalic"; src: url("/data/FKGrotesk-BoldItalic.woff");}
+@font-face {font-family: "MeduimFK"; src: url("/data/FKGrotesk-Medium.woff") format("woff");}
+@font-face {font-family: "BoldItalic"; src: url("/data/FKGrotesk-BoldItalic.woff") format("woff");}
 
 
 
@@ -27,8 +27,7 @@ blokace pro vertikalni zarizeni
 main
 */
 * {user-select: none; cursor: none !important;}
-html, body {padding: 0; margin: 0; font-family: "Medium", monospace; font-size: 3vh; background: white; overflow: hidden; width: 100vw; height: 100vh;}
-      body.mobile {position: absolute;}
+html, body {padding: 0; margin: 0; font-family: "MeduimFK", monospace; font-size: 3vh; background: white; overflow: hidden; width: 100vw; height: 100vh; position: absolute;}
 
 ::selection {background: rgb(0, 255, 0);}
 
@@ -37,6 +36,7 @@ html, body {padding: 0; margin: 0; font-family: "Medium", monospace; font-size: 
 *::-webkit-scrollbar {width: 1vh; height: 1vh; background: transparent;}
 *::-webkit-scrollbar-thumb {background: black;}
 
+a {transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);}
 a, a:visited {color: black; text-decoration: underline;}
 a:hover {color: red;}
 
@@ -59,13 +59,13 @@ gizmo cursor
 .cursor {position: absolute; z-index: 99; pointer-events: none; top: 50%; left: 50%;}
   #gizmo, #dot {transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); opacity: 0; position: absolute; transform: translate(-50%, -50%); pointer-events: none;}
   #dot {width: 3vh; height: 3vh; background: white; border-radius: 50%;}
-  .cursor.hover #dot {width: 6vh; height: 6vh; animation: pulse infinite ease 2s; animation-delay: -1s;}
+  .cursor.hover #dot {width: 6vh; height: 6vh; animation: pulse infinite ease 4s; filter: invert(100%);}
     @keyframes pulse {
-      80% {transform: translate(-50%, -50%) scale(1);}
-      90% {transform: translate(-50%, -50%) scale(1.15);}
+      0% {transform: translate(-50%, -50%) scale(1);}
+      50% {transform: translate(-50%, -50%) scale(1.15);}
       100% {transform: translate(-50%, -50%) scale(1);}
     }
-  #gizmo {width: 20vh; height: 20vh; transform: translate(-50%, 0%) scale(2);}
+  #gizmo {width: 20vh; height: 20vh; transform: translate(-50%, 0%) scale(1.5);}
   #cube {width: 10vh; height: 10vh; transform-style: preserve-3d; transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(10vh); margin: auto; position: relative;}
   #cube > div {position: absolute; transition: all 0.5s ease-in-out; width: 10vh; height: 10vh; float: left; overflow: hidden; border: 1vh solid transparent;}
     #s1 {transform: rotatex(90deg) translateX(0) translateY(0) translateZ(5.62vh);}
@@ -79,91 +79,6 @@ gizmo cursor
                       .cursor.dot.red #dot {background: cyan !important;}
                       .cursor.dot.blue #dot {background: yellow !important;}
                       .cursor.dot.green #dot {background: magenta !important;}
-
-
-
-
-
-
-
-
-
-
-
-                          #pyramid {
-                              transform-origin: 50% 90% 0;
-                              transform: scale(0.2) rotateX(20deg) rotateY(40deg);
-                              position: absolute;
-                              transform-style: preserve-3d;
-                          }
-
-                          .base {
-                          position: absolute;
-                          width: 270px;
-                          height: 270px;
-                          background-color: rgba(147,81,166,.9);
-                          transform: rotateX(90deg) translateZ(-135px);
-                          opacity: .5;
-                          }
-
-                          #pyramid div:not(.base) {
-                              position: absolute;
-                              border-left: 135px solid transparent;
-                              border-right: 135px solid transparent;
-                              border-bottom: 270px solid;
-                              transform-origin: 135px 270px 0;
-                              opacity: .5;
-                          }
-
-                          #pyramid div.front {
-                          border-bottom-color: #e04545;
-                          transform: rotateY(0deg) translateZ(135px) rotateX(30deg);
-                          }
-
-                          #pyramid div.back {
-                          border-bottom-color: #ccaf5a;
-                          transform: rotateY(90deg) translateZ(135px) rotateX(30deg);
-                          }
-
-                          #pyramid div.right {
-                          border-bottom-color: #4ccfc8;
-                          transform: rotateY(270deg) translateZ(135px) rotateX(30deg);
-                          }
-
-                          #pyramid div.left {
-                          border-bottom-color: maroon;
-                          transform: rotateY(180deg) translateZ(135px) rotateX(30deg);
-                          }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -212,11 +127,12 @@ centered divs
 /*
 homepage
 */
-#logo {width: 70vw; height: 29vw; z-index: 10; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);}
+#logo {width: 56vw; height: 23.5vw; z-index: 10; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);}
   #logo.red {background: url('/data/logoR.png') center center no-repeat; background-size: contain;}
   #logo.blue {background: url('/data/logoB.png') center center no-repeat; background-size: contain;}
   #logo.green {background: url('/data/logoG.png') center center no-repeat; background-size: contain;}
-#homebg {width: 100vw; height: 100vh; background: white;}
+#homebg {width: 100vw; height: 100vh;}
+  #homebg video {position: absolute; min-width: 100%; min-height: 100%;}
 
 .textSlider {width: 100vw; position: absolute; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); font-family: "BoldItalic", monospace;}
   .textSlider div {display: table-cell; word-break: keep-all; white-space: nowrap; animation: textSlide 20s linear infinite reverse; animation-delay: -3s;}
@@ -226,9 +142,9 @@ homepage
   }
   .textSlider.hidden {bottom: -7vh !important;}
 
-#lista {height: 5vh; background: white; color: black; bottom: 0; left: 0; z-index: 3; padding: 1vh; font-size: 5vh; line-height: 5vh;}
-#aktuality {height: 2vh; background: #303030; color: white; bottom: 7vh; left: 0; z-index: 2; padding: 1vh; font-size: 2vh; line-height: 2vh;}
-#patka {position: absolute; bottom: 0; right: 0; height: 5vh; padding: 1vh 2vh; line-height: 5vh; font-size: 3vh; z-index: 20; background: white;}
+#lista {height: 4.5vh; background: white; color: black; bottom: 0; left: 0; z-index: 3; padding: 0.75vh; font-size: 4.5vh; line-height: 4.5vh;}
+#aktuality {height: 2vh; background: #303030; color: white; bottom: 6vh; left: 0; z-index: 2; padding: 1vh; font-size: 2vh; line-height: 2vh;}
+#patka {position: absolute; bottom: 0; right: 0; height: 4.5vh; padding: 0.75vh 1.25vh; line-height: 4.5vh; font-size: 2.5vh; z-index: 20; background: white;}
 
 
 
@@ -258,6 +174,7 @@ setup pozicovani dle linku
   #projects.about {margin-left: 170vw; margin-top: 0;}
   #projects.contact {margin-left: 100vw; margin-top: 50vh;}
   #projects.projects {margin: 0;}
+  #projects.escape {margin-left: 200vw;}
 
 
 
@@ -274,19 +191,22 @@ setup pozice
   #content .navigContact.long {height: 50vh;} /* !important */
   .long {opacity: 1 !important;}
 
-.button {opacity: 0; position: absolute; transform: translate(-50%, -50%) scale(1.2); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); width: 15vh; height: 15vh; text-align: center; line-height: 15vh; border-radius: 50%; border: 0.5vh solid black; z-index: 20; pointer-events: none;}
+.button {opacity: 0; position: absolute; font-weight: bold; transform: translate(-50%, -50%) scale(1.2); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); width: 15vh; height: 15vh; text-align: center; line-height: 15vh; border-radius: 50%; border: 0.3vh solid black; font-size: 2.5vh; z-index: 20; pointer-events: none;}
   .buttonAbout {top: 50%; left: 10vw;}
   .buttonContact {top: 15vh; left: 50%;}
   .buttonProjects {top: 50%; right: 1vw;}
-.on {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+.button.on {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+
+.content {opacity: 1; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);}
+  .content.off {opacity: 0;}
 
 
 
 /*
 mobil menu
 */
-.burger {z-index: 999; position: fixed; top: 5vh; left: 5vh; font-size: 5vh; color: black; padding: 5vh; background: gray;}
-  .mobilMenu {display: none; z-index: 998; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255,255,255,0.5);}
+.burger {z-index: 999; position: fixed; top: -2vh; right: 0; font-size: 10vh; color: black; padding: 3vh;}
+  .mobilMenu {display: none; z-index: 998; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255,255,255,0.75);}
   .mobilMenu ul {list-style: none; transform: translate(-50%, -50%); font-size: 10vh; margin: 0; text-align: center;}
 
 
@@ -294,8 +214,10 @@ mobil menu
 /*
 about
 */
-#aboutBody {width: calc(70vw - 6vh); height: calc(100vh - 6vh); padding: 3vh; overflow-y: scroll; font-size: 4vh;}
+#aboutBody {width: calc(70vw - 6vh); height: calc(100vh - 6vh); padding: 3vh; overflow-y: scroll; font-size: 5vh;}
   #aboutBody::-webkit-scrollbar-thumb {background: blue;}
+
+  #aboutBody a:hover {color: blue;}
 
 
 
@@ -304,11 +226,17 @@ contact
 */
 #contactBody {width: calc(100vw - 6vh); height: calc(50vh - 3vh); padding: 3vh; padding-bottom: 0; overflow-x: scroll; font-size: 2vh;}
   #contactBody::-webkit-scrollbar-thumb {background: red;}
-  .person {display: table-cell; min-width: 30vw; max-height: 30vh; padding: 2vh 4vh 0vh 0vh;}
-    .person h2 {font-size: 2vh; margin-top: 2vh;}
+  .person {display: table-cell; min-width: 23vw; max-height: 28vh; padding: 2vh 4vh 0vh 0vh;}
+    .person h2 {margin-top: 2vh; font-family: "MeduimFK", monospace;}
+      .person h2:first-child {margin-bottom: 4vh;}
+    .person p {font-size: 2.2vh;}
+      .person p.first {margin: 0.5vh 0;}
   .head {position: sticky; top: 0; left: 0; width: calc(100vw - 6vh);}
-    .contactHeadder {float: left;}
+    .contactHeadder {float: left; font-size: 6vh;}
     .linksHeadder {float: right;}
+      .team {text-decoration: underline;}
+
+  #contactBody a:hover {color: red;}
 
 
 
@@ -316,3 +244,30 @@ contact
 projekty
 */
 /* ou maj gad */
+#projectsBody {position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;}
+  #listaProjects {height: 7.5vh; width: 100vw; left: 50%; top: 0; text-align: center; position: absolute; transform: translateX(-50%); box-shadow: 0 0 3vh 0 rgba(0,0,0,0.2); z-index: 10; transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);}
+  #listaProjects > div {width: 3.5vh; height: 3.5vh; border: 0.25vh solid transparent; border-radius: 50%; margin: 2vh 5vh; line-height: 3.5vh; display: inline-block; font-size: 2vh; transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);}
+  #listaProjects > div:hover, #listaProjects > div.selected {border-color: black;}
+    #listaProjects.off {top: -7.5vh;}
+
+  #projectBody a:hover {color: rgb(0,255,0);}
+
+  #project {position: absolute; top: 7.5vh; height: 92.5vh; width: 100vw; overflow-x: scroll;}
+    #project::-webkit-scrollbar-thumb {background: rgb(0,255,0);}
+  .post {height: calc(92.5vh - 1vh); width: auto; display: table-cell; pointer-events: none;}
+    .post * {height: calc(100%); display: block; margin: 0 10vw;}
+    .post:first-child * {margin-left: 40vw;}
+    .post:nth-last-child(1) * {margin-right: 40vw;}
+
+  #nextProject {height: calc(92.5vh - 1vh); width: 15vw; display: block; top: 7.5vh; right: 0; position: fixed;}
+    .navigNextProject {position: absolute; top: 0; right: 0; height: calc(92.5vh - 1vh) !important; background: linear-gradient(90deg, transparent 0%, rgba(0,255,0,1) 100%);}
+    .nextProject {top: 50%; right: 0; line-height: 7.5vh;}
+
+  #projectAbout, .info {position: absolute; color: white; z-index: 10; top: 15vh; left: 10vw; mix-blend-mode: exclusion;}
+    .info {top: 24vh; text-decoration: underline;}
+    #projectReading {visibility: hidden; transform: translateX(-30%); opacity: 0; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: center; position: absolute; z-index: 10; top: 23.5vh; left: calc(10vw - 1vh); width: 25vw; height: 30vh; font-size: 2.2vh; background: white; padding: 1vh; padding-top: 6vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.2);}
+      #projectReading.on {visibility: visible; opacity: 1; transform: translateX(0); pointer-events: all;}
+    #projectReading .close {position: absolute; right: 1.25vh; top: 1vh; pointer-events: all;}
+      .reading {height: 30vh; overflow-y: scroll; position: absolute; width: 25vw;}
+
+  .model {pointer-events: all !important; width: 30vw;}

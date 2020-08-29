@@ -106,6 +106,8 @@ kontrolor jestli je stranka horizontalni, vraci true/false
 */
 export function isHorizontal(){
 
+  isMobile();
+
   var win = {'w': $(window).width(),
              'h': $(window).height()};
 
@@ -137,9 +139,14 @@ export function isHorizontal(){
 jestli tj telefon, ukaz mobilni menu
 */
 export function isMobile(){
-  if (jQuery.browser.mobile) {
-    $('body').addClass('mobile');
-    $('body').append($('<div>', {class: 'burger', html: '☰'}));
-    $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li></ul>'));
+  if ($.browser.mobile) {
+    if (!$('body').hasClass('mobile')){
+      $('body').addClass('mobile');
+      $('body').append($('<div>', {class: 'burger', html: '☰'}));
+      $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li></ul>'));
+    }
+  } else {
+    $('body').removeClass('mobile');
+    $('.burger, .mobilMenu').remove();
   }
 }

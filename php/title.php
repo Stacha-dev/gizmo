@@ -27,12 +27,12 @@ if (isset($_POST['url'])) {
   switch($addr[1]) {
 
     default: case 'hello':
-      $ress .= ' — '.lang('AHOJ', 'HELLO');
+      //$ress .= ' — '.lang('AHOJ', 'HELLO');
     break;
 
     case 'projects':
       if ($addr[2]) {
-        $ress .= ' — XY';
+        $ress .= ' — '.lang('PROJEKTY', 'PROJECTS');
       } else {
         $ress .= ' — '.lang('PROJEKTY', 'PROJECTS');
       }

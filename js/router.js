@@ -17,6 +17,7 @@ export function page(url) {
   var file,
       pointers,
       afterLoad = false,
+      getPrj = false,
       home = $('#content'),
       content = false,
       delay = 0,
@@ -57,25 +58,31 @@ export function page(url) {
 
 
         case 'projects': // projekty
-          var file = './php/page/projects.php',
+          var file = '/php/page/projects.php',
               content = $('#projects');
+          // pokud jeste neprobehl load
+          if (!$('#project').length) {
+            getPrj = true;
+          }
           // pokud je uveden konkretni projekt
           if (typeof path[2] !== 'undefined') {
-              pointers = {'link': path[2]};
+              pointers = {'link': path[2], 'full': getPrj};
+              //$('#listaProjects > div').removeClass('selected');
+              //$('*[href="/projects/'+path[2]+'"]').addClass('selected');
           }
         break;
 
 
 
         case 'about': // o projektu
-          var file = './php/page/about.php',
+          var file = '/php/page/about.php',
               content = $('#about');
         break;
 
 
 
         case 'contact': // kontakt na holky
-          var file = './php/page/contact.php',
+          var file = '/php/page/contact.php',
               content = $('#contact');
         break;
 
@@ -99,7 +106,7 @@ export function page(url) {
     $('#projects').append('<div class="navig navigHome" href="/hello"></div>');
 
     // nahodi defaulty
-    var file = './php/page/home.php',
+    var file = '/php/page/home.php',
         content = $('#content');
 
     if (path[1] != 'hello' && typeof path[1] !== 'undefined' && path[1] != '') {
@@ -210,14 +217,7 @@ export function page(url) {
                       break;
 
                       case 'projects': // projekty
-                        // pokud je uveden konkretni projekt
-                        if (typeof path[2] !== 'undefined') {
-                            pointers = {'link': path[2]};
-                            navig('projects', path[2]);
-                        // pokud neni konkretni projekt
-                        } else {
-                            navig('projects', false);
-                        }
+                        navig('projects', false);
                       break;
 
                       case 'about': // o projektu
@@ -230,18 +230,40 @@ export function page(url) {
 
                     }
 
-                    // zobrazi stranku
-                    content.find('.content').remove();
-                    var obsah = obj.html;
-                    if (!afterLoad) {
-                      obsah = '<div class="content">'+obsah+'</div>';
-                    }
-                    content.append(obsah).addClass('loaded').removeClass('fadeup fadeout');
+
+
+                    // pokud startuje stranka s projektama
+                    /*
+                    if ($('#content').length && path[1] == 'projects' && typeof path[2] !== 'undefined') {
+
+                      content.addClass('escape');
+                      setTimeout(function(){
+                        var obsah = '<div class="content">'+obj.html+'</div>';
+                        content.find('.content').remove();
+                        content.append(obsah);
+                        content.removeClass('escape');
+                      }, 1000);
+
+                    // vsechny ostatni piprady = normalni
+                    } else {
+                    */
+
+                      content.find('.content').remove();
+                      var obsah = obj.html;
+                      if (!afterLoad) {
+                        obsah = '<div class="content">'+obsah+'</div>';
+                      }
+                      content.append(obsah).addClass('loaded').removeClass('fadeup fadeout');
+
+                    //}
+
+
 
                     // pokud se ma jeste neco stat potom
                     if (afterLoad !== false) {
                       page(afterLoad);
                     }
+
                     // pote co se vsechno loadne, kontrola jestli je loadnuty homepage base
                     if ($('#logo').hasClass('fadeup')) {
 
@@ -333,6 +355,9 @@ export function navig(url, param) {
   $('.navigAbout').attr('href', '/about');
   $('.navigContact').attr('href', '/contact');
 
+  // schova "next project" => musim to pak vyresit lip ale ted neni cas
+  $('#nextProject').hide();
+
   // kam se to ma navignout
   switch (url) {
 
@@ -343,6 +368,12 @@ export function navig(url, param) {
     case 'projects':
       stranky.removeClass('home about contact').addClass('projects');
       $('#logo').removeClass('red green blue').addClass('green');
+      // zobrazi odkaz na dalsi projekt
+      $('#nextProject').show();
+      // zobrazi popisek projektu
+      setTimeout(function(){
+        $('#projectReading').addClass('on');
+      }, 500);
     break;
 
     case 'about':

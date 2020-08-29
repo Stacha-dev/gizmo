@@ -16,7 +16,6 @@ $(document).ready(function() {
       page(url);
 
       isHorizontal();
-      isMobile();
 
 });
 
@@ -36,7 +35,7 @@ $(window).on('resize', function(){
 /*
 click na a:href
 */
-$(document).on('click touch', 'a:not(.esc), .navig, li[href]', function(e) {
+$(document).on('click touch', '*[href]:not(.esc)', function(e) {
 
       // loadne obsah podle hrefu
       var url = $(this).attr('href');
@@ -51,15 +50,11 @@ $(document).on('click touch', 'a:not(.esc), .navig, li[href]', function(e) {
 /*
 akce kurzoru
 */
-$(document).on('mouseenter', 'a.esc, .navig', function(){
-
+$(document).on('mouseenter', '*[href], .act', function(){
     $('.cursor').addClass('hover');
-
 });
-$(document).on('mouseleave', 'a.esc, .navig', function(){
-
+$(document).on('mouseleave', '*[href], .act', function(){
     $('.cursor').removeClass('hover');
-
 });
 
 
@@ -85,8 +80,13 @@ $(document).on('mouseenter', '.navigProjects:not(.long)', function(){
       $('.buttonProjects').addClass('on');
     }
 });
+$(document).on('mouseenter', '.navigNextProject', function(){
+    if (!$('.nextProject').hasClass('on')) {
+      $('.nextProject').addClass('on');
+    }
+});
 $(document).on('mouseleave', '.navig', function(){
-    $('.buttonContact, .buttonProjects, .buttonAbout').removeClass('on');
+    $('.buttonContact, .buttonProjects, .buttonAbout, .nextProject').removeClass('on');
 });
 
 
@@ -99,4 +99,25 @@ $(document).on('touch click', '.burger', function(){
 });
 $(document).on('touch click', '.mobilMenu', function(){
   $(this).slideToggle(500, 'easeOutQuart');
+});
+
+
+
+/*
+project info
+*/
+$(document).on('touch click', '.info, .close', function(){
+  $('#projectReading').toggleClass('on');
+});
+
+
+
+/*
+on blur disable music / on focus enable
+*/
+$(window).on('blur', function(){
+  $('video').prop('muted', true);
+});
+$(window).on('focus', function(){
+  $('video').prop('muted', false);
 });

@@ -13,5 +13,5 @@ if (!isset($_SESSION['lang'])) {
     // pokud neni cestina, automaticky en
     if ($defaultLang == 'cs') {$lang = 'cs';} else {$lang = 'en';}
 
-  $_SESSION['lang'] = 'en';
+  $_SESSION['lang'] = $lang;
 }

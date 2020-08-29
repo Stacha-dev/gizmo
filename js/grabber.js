@@ -29,7 +29,6 @@ $(function(){
       // presun na pozici dle posunuti
       $(this).scrollLeft(cur.x-e.pageX+from.left);
       $(this).scrollTop(cur.y-e.pageY+from.top);
-      //console.log(($(this).outerHeight()-$(this).innerHeight())/2);
 
           // smoothing
           var now = Date.now(),
@@ -94,7 +93,10 @@ $(function(){
     $(this).stop();
 
     // pozice divu ve strance
-    var posCord = $(this).offset();
+    var posCord = $(this).offset(),
+        target = $(e.target);
+
+    if (!target.hasClass('model')) {
 
     // pozice
     cur.x = (e.pageX - posCord.left) + $(this).scrollLeft();
@@ -109,6 +111,8 @@ $(function(){
       // event listenery
       $(document).on('mousemove', '.grabbed', move);
       $(document).on('mouseup blur', out);
+
+    }
 
   });
 
