@@ -1,18 +1,18 @@
 # Giz'mo LAB
 Design studio: 3D apparel, accessories and jewelry.
 
-
-### CODED BY
+# ABOUT
+### Coded by
 Oliver Staša
 
 
-### DESIGNED BY
+### Designed by
 Alina Matějová
 
 
-### WEB
+### LINK
 https://gizmo-lab.com
 
 
-### PROJECT TIME TRACKER
+### time tracker
 https://wakatime.com/@oliverstasa/projects/cgcslpkgrz?start=2020-08-15&end=2020-10-31
