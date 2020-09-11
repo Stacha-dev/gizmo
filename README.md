@@ -2,8 +2,12 @@
 Design studio: 3D apparel, accessories and jewelry.
 
 
-### CREATIVE TEAM
-Oliver Staša, Alina Matějová
+### CODED BY
+Oliver Staša
+
+
+### DESIGNED BY
+Alina Matějová
 
 
 ### WEB
