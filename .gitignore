@@ -1,2 +1,4 @@
+.git
 .remote-sync.json
-/data/data
+/data/*
+/stats/*
