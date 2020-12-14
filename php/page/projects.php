@@ -46,7 +46,7 @@ projekt 1
 */
 switch ($id) {
   case 3:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj1/1_3d/mikina.glb'],
+    $prj_data = [['type' => '3d', 'data' => '/data/data/prj1/1_3d/mikina.glb', 'preload' => '/data/data/prj1/1_3d/thumb.jpg'],
                  ['type' => 'video', 'data' => '/data/data/prj1/1.mp4'],
                  ['type' => 'img', 'data' => '/data/data/prj1/1.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj1/2.jpg'],
@@ -65,15 +65,15 @@ switch ($id) {
   break;
 
   case 2:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj2/1_3d/PLAST_METAL.glb'],
+    $prj_data = [['type' => '3d', 'data' => '/data/data/prj2/1_3d/PLAST_METAL.glb', 'preload' => '/data/data/prj2/1_3d/thumb.jpg'],
                  ['type' => 'video', 'data' => '/data/data/prj2/1.mp4'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/5_3d/LING_ROZ_4.glb'],
+                 ['type' => '3d', 'data' => '/data/data/prj2/5_3d/LING_ROZ_4.glb', 'preload' => '/data/data/prj2/2_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/1.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/2_3d/LING_ROZ_5.glb'],
+                 ['type' => '3d', 'data' => '/data/data/prj2/2_3d/LING_ROZ_5.glb', 'preload' => '/data/data/prj2/3_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/2.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/4_3d/lingerie_roza_300.glb'],
+                 ['type' => '3d', 'data' => '/data/data/prj2/4_3d/lingerie_roza_300.glb', 'preload' => '/data/data/prj2/4_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/3.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/3_3d/LING_avatar2.glb'],
+                 ['type' => '3d', 'data' => '/data/data/prj2/3_3d/LING_avatar2.glb', 'preload' => '/data/data/prj2/5_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/4.png']];
     $prj_head = '<h1>PUT IT ON</h1>';
     $prj_info_cz = 'Instalace PUT IT ON představuje audiovizuální vstup ve formě augmentované reality, čímž vznikají nová propojení obsahu ve fyzickém i virtuálním prostředí. Dematerializovaná módní přehlídka odehrávající se na pomezí různých realit představuje efemérní moment zpřítomnění neviditelného a ilustruje intimní rovinu instalace. Projekt je zaměřen na prezentaci autorských skleněných a kovových oděvů vytvořených u příležitosti výstavy Caution: Contents Hot!.<br><br>Design: Helena Todd<br>Animace: Žil J. Vostalová<br>Hudba: Haruomi Hosono';
@@ -81,7 +81,7 @@ switch ($id) {
   break;
 
   case 1:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj3/1_3d/kosile.glb'],
+    $prj_data = [['type' => '3d', 'data' => '/data/data/prj3/1_3d/kosile.glb', 'preload' => '/data/data/prj3/1_3d/thumb.jpg'],
                  ['type' => 'video', 'data' => '/data/data/prj3/1.mp4'],
                  ['type' => 'video', 'data' => '/data/data/prj3/2.mp4'],
                  ['type' => 'video', 'data' => '/data/data/prj3/3.mp4'],
@@ -138,10 +138,10 @@ for ($i = 0; $i < sizeof($prj_data); $i++) {
       array_push($imgs, '"'.$prj_data[$i]['data'].'"');
     break;
     case 'video':
-      $prj .= '<video autoplay loop><source src="'.$prj_data[$i]['data'].'" type="video/mp4"></video>';
+      $prj .= '<video loop><source src="'.$prj_data[$i]['data'].'" type="video/mp4"></video>';
     break;
     case '3d':
-      $prj .= '<model-viewer class="model" src="'.$prj_data[$i]['data'].'" auto-rotate camera-controls></model-viewer>';
+      $prj .= '<model-viewer class="model" src="'.$prj_data[$i]['data'].'" auto-rotate camera-controls poster="'.$prj_data[$i]['preload'].'"></model-viewer>';
     break;
   }
   $prj .= '</div>';

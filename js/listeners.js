@@ -16,6 +16,7 @@ $(document).ready(function() {
       page(url);
 
       isHorizontal();
+      isMobile();
 
 });
 
@@ -26,7 +27,12 @@ on resize
 */
 $(window).on('resize', function(){
 
-  isHorizontal();
+  if (isHorizontal()) {
+    if (isMobile()) {
+      var url = window.location.pathname;
+      page(url);
+    }
+  }
 
 });
 
@@ -116,8 +122,42 @@ $(document).on('touch click', '.info, .close', function(){
 on blur disable music / on focus enable
 */
 $(window).on('blur', function(){
+
   $('video').prop('muted', true);
+  $('video').each(function(){
+    $(this)[0].pause();
+  });
+
 });
 $(window).on('focus', function(){
   $('video').prop('muted', false);
+  $(document).trigger('scroll');
+});
+
+
+
+/*
+on scroll pause/play videos
+*/
+$(document).on('wheel', function(){
+
+  $('#project video').each(function(){
+
+    var video = $(this),
+        videoW = video.width(),
+        fromLeft = video.offset().left,
+        scrollPrj = $('#project').scrollLeft(),
+        winW = $(window).width();
+
+    if (fromLeft > videoW/2*(-1) &&
+        fromLeft+videoW*1.5 < scrollPrj+winW) {
+      $(this)[0].play();
+      console.log('play');
+    } else {
+      $(this)[0].pause();
+      console.log('pause');
+    }
+
+  });
+
 });

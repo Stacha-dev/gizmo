@@ -106,8 +106,6 @@ kontrolor jestli je stranka horizontalni, vraci true/false
 */
 export function isHorizontal(){
 
-  isMobile();
-
   var win = {'w': $(window).width(),
              'h': $(window).height()};
 
@@ -140,13 +138,15 @@ jestli tj telefon, ukaz mobilni menu
 */
 export function isMobile(){
   if ($.browser.mobile) {
-    if (!$('body').hasClass('mobile')){
-      $('body').addClass('mobile');
+    if (!$('html, body').hasClass('mobile')){
+      $('html, body').addClass('mobile');
       $('body').append($('<div>', {class: 'burger', html: '☰'}));
-      $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li></ul>'));
+      $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li><a href="https://www.instagram.com/gizmo.lab/" class="esc" target="_blank">instagram</a></ul>'));
+      return true;
     }
   } else {
-    $('body').removeClass('mobile');
+    $('html, body').removeClass('mobile');
     $('.burger, .mobilMenu').remove();
+    return false;
   }
 }
