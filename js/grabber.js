@@ -25,6 +25,7 @@ $(function(){
     if (grab) {
 
       var from = $(this).offset();
+      $(this).trigger('wheel');
 
       // presun na pozici dle posunuti
       $(this).scrollLeft(cur.x-e.pageX+from.left);
