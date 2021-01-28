@@ -157,28 +157,38 @@ stranky
 setup pozicovani dle linku
 */
 #content {z-index: 10;}
-#content, #about, #contact, #projects {overflow: hidden; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); position: absolute;}
+#content, #about, #contact, #projects, #admin {overflow: hidden; transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); position: absolute;}
 #content {width: 100vw; height: 100vh; margin: 0;}
   #content.home {margin: 0;}
   #content.about {margin-left: 70vw; margin-top: 0;}
   #content.contact {margin-left: 0vh; margin-top: 50vh;}
   #content.projects {margin-left: -100vw; margin-top: 0;}
+  #content.admin {margin-top: -100vh; margin-left: 0;}
 #about {width: 70vw; height: 100vh; margin: 0;}
   #about.home {margin-left: -70vw; margin-top: 0;}
   #about.about {margin: 0;}
   #about.contact {margin-left: -70vw; margin-top: 50vh;}
   #about.projects {margin-left: -170vw; margin-top: 0;}
+  #about.admin {margin-top: -100vh; margin-left: 70vw;}
 #contact {width: 100vw; height: 50vh;  margin: 0;}
   #contact.home {margin-top: -50vh; margin-left: 0;}
   #contact.about {margin-top: -50vh; margin-left: 70vw;}
   #contact.contact {margin: 0;}
   #contact.projects {margin-top: -50vh; margin-left: -100vw;}
+  #contact.admin {margin-top: -100vh; margin-left: 0;}
 #projects {width: 100vw; height: 100vh; margin: 0;}
   #projects.home {margin-left: 100vw; margin-top: 0;}
   #projects.about {margin-left: 170vw; margin-top: 0;}
   #projects.contact {margin-left: 100vw; margin-top: 50vh;}
   #projects.projects {margin: 0;}
+  #projects.admin {margin-top: -100vh; margin-left: -100vw;}
   #projects.escape {margin-left: 200vw;}
+#admin {width: 100vw; height: 100vh;  margin: 0;}
+  #admin.home {margin-top: 100vh; margin-left: 0;}
+  #admin.about {margin-top: -50vh; margin-left: 70vw;}
+  #admin.contact {margin-top: 150vh; margin-left: 0;}
+  #admin.projects {margin-top: 100vh; margin-left: -100vw;}
+  #admin.admin {margin: 0;}
 
 
 
@@ -275,3 +285,19 @@ projekty
       .reading {height: 30vh; overflow-y: scroll; position: absolute; width: 25vw;}
 
   .model {pointer-events: all !important; width: 30vw; cursor: wait;}
+
+
+
+  /*
+  admin
+  */
+  /* */
+  #admin, #admin * {cursor: default !important;}
+  #adminBody {padding: 2vh;}
+  .logout, .adminHome {position: absolute; top: 2vh; right: 2vh; font-size: 5vh;}
+  .logout {right: 7vh;}
+    .logout:hover, .adminHome:hover {color: blue;}
+  input {font-family: "MeduimFK", monospace; border: 0; border-bottom: 1vh solid gray; font-size: 2vh; padding: 1vh; outline: none; width: 30vh; max-width: 80vw; margin-bottom: 1vh;}
+  input:focus {outline: none; border-color: blue;}
+  input[type="submit"] {background: blue; color: white; border: 1vh solid blue; width: 32vh;}
+    input[type="submit"]:hover {background: red; border-color: red;}
