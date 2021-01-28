@@ -87,6 +87,14 @@ export function page(url) {
         break;
 
 
+        
+        case 'admin': // admin
+          var file = '/php/admin/admin.php',
+              content = $('#admin');
+              pointers = {'page': path[2], 'action': path[3], 'id': path[4]};
+        break;
+
+
       }
 
 
@@ -103,6 +111,7 @@ export function page(url) {
     $('body').append($('<div>', {id: 'contact', class: 'home pg'}));
     $('body').append($('<div>', {id: 'about', class: 'home pg'}));
     $('body').append($('<div>', {id: 'projects', class: 'home pg'}));
+    $('body').append($('<div>', {id: 'admin', class: 'home pg'}));
     $('#projects').append('<div class="navig navigHome" href="/hello"></div>');
 
     // nahodi defaulty
@@ -228,6 +237,10 @@ export function page(url) {
                         navig('contact', false);
                       break;
 
+                      case 'admin': // kontakt na holky
+                        navig('admin', false);
+                      break;
+
                     }
 
 
@@ -307,7 +320,8 @@ export function page(url) {
             // pokud nejsou obr na preload, proste zobrazi stranku
             } else {
 
-              error('heh, nic na preload?');
+              console.log('nic na preload');
+              error('nic na preload');
 
             }
 
@@ -348,7 +362,7 @@ parametry
 export function navig(url, param) {
 
   // vsecky stranky
-  var stranky = $('#content, #contact, #about, #projects');
+  var stranky = $('#content, #contact, #about, #projects, #admin');
 
   // resetne long navigaci + resetne hrefy
   $('.navig').removeClass('long');
@@ -362,11 +376,11 @@ export function navig(url, param) {
   switch (url) {
 
     case 'hello':
-      stranky.removeClass('projects about contact').addClass('home');
+      stranky.removeClass('projects about contact admin').addClass('home');
     break;
 
     case 'projects':
-      stranky.removeClass('home about contact').addClass('projects');
+      stranky.removeClass('home about contact admin').addClass('projects');
       $('#logo').removeClass('red green blue').addClass('green');
       // zobrazi odkaz na dalsi projekt
       $('#nextProject').show();
@@ -377,13 +391,19 @@ export function navig(url, param) {
     break;
 
     case 'about':
-      stranky.removeClass('projects home contact').addClass('about');
+      stranky.removeClass('projects home contact admin').addClass('about');
       $('.navigAbout').addClass('long').attr('href', '/hello');
       $('#logo').removeClass('red green blue').addClass('blue');
     break;
 
     case 'contact':
-      stranky.removeClass('projects about home').addClass('contact');
+      stranky.removeClass('projects about home admin').addClass('contact');
+      $('.navigContact').addClass('long').attr('href', '/hello');
+      $('#logo').removeClass('red green blue').addClass('red');
+    break;
+    
+    case 'admin':
+      stranky.removeClass('projects about home contact').addClass('admin');
       $('.navigContact').addClass('long').attr('href', '/hello');
       $('#logo').removeClass('red green blue').addClass('red');
     break;

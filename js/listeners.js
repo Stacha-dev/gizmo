@@ -2,7 +2,7 @@
 preload obrazku
 */
 import {page} from './router.js';
-import {isHorizontal, isMobile} from './main.js';
+import {isHorizontal, isMobile, error} from './main.js';
 
 
 
@@ -156,6 +156,48 @@ $(document).on('wheel', function(){
     } else {
       $(this)[0].pause();
       console.log('pause');
+    }
+
+  });
+
+});
+
+
+
+/*
+admin login
+*/
+$(document).on('submit', '#loginForm', function(e){
+//$('#loginForm').submit(function(e){
+
+  var login = $('input[name="login"]').val(),
+      pass = $('input[name="pass"]').val();
+
+  $.post('/php/admin/login.php', {login: login, pass: pass}, function(res){
+
+    if (res == 'success') {
+      page('/admin');
+    } else {
+      error('you what');
+    }
+
+  });
+
+  e.preventDefault();
+
+});
+
+
+
+/*
+admin logout
+*/
+$(document).on('click touch', '.logout', function(){
+
+  $.get('/php/admin/logout.php', function(res){
+
+    if (res == 'success') {
+      page('/admin');
     }
 
   });
