@@ -218,7 +218,7 @@ if ($_SESSION['admin'] == true) {
 } else {
 
     $html .= '<form id="loginForm" method="post">';
-    $html .= '<input type="text" name="login" placeholder="login"><br>';
+    $html .= '<input type="text" name="login" placeholder="username"><br>';
     $html .= '<input type="password" name="pass" placeholder="password"><br>';
     $html .= '<input type="submit" value="log in">';
     $html .= '</form>';
