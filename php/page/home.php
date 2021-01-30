@@ -17,7 +17,7 @@ $dnes = date("Y-m-d");
 
 
 // get aktualitu
-$sql = 'SELECT * FROM news WHERE od <= "'.$dnes.'" AND do >= "'.$dnes.'"';
+$sql = 'SELECT * FROM news WHERE od <= "'.$dnes.'" AND do >= "'.$dnes.'" ORDER BY RAND() LIMIT 1';
 // run sql
 $ress = mysqli_query($conn, $sql);
 // if there is any result
