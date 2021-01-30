@@ -15,6 +15,7 @@ vars
 */
 $imgs = array();
 $status = '';
+$page = isset($_POST['page']) ? $_POST['page'] : '';
 
 
 
@@ -22,14 +23,21 @@ $status = '';
 html
 */
 $html .= '<div id="adminBody">';
-$html .= '<h1>GIZ’MO: <a href="/admin">ADMIN ↓</a></h1>';
+$html .= '<h1><a href="/admin';
+    if ($page != '' && isset($_POST['action'])) {
+        $html .= '/'.$page;
+    }
+$html .= '">↓</a> GIZ’MO ADMIN</h1>';
 $html .= '<br>';
-$html .= '<div class="adminHome" href="/hello">↑</div>';
+$html .= '<a class="adminHome" href="/hello">↑</a>';
+
+
 if ($_SESSION['admin'] == true) {
 
 
     // sql
     $conn = sqlConn();
+    $napoveda = '<i>*dobře to vypadá když to je napsaný ve stylu NÁZEV (7 MEZER) DATUM+ČAS (7 MEZER) MÍSTO<br>*tzn. např.: "Design akce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.—8. 9. 2020 / 13—21 h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dům umění, Brno"</i><br><br>';
 
     
 
@@ -37,7 +45,6 @@ if ($_SESSION['admin'] == true) {
 
 
 
-    $page = isset($_POST['page']) ? $_POST['page'] : 'menu';
     /*
     page type
     */
@@ -57,25 +64,25 @@ if ($_SESSION['admin'] == true) {
                     if (isset($_POST['text']) && isset($_POST['text_en']) && isset($_POST['from']) && isset($_POST['to'])) {
                     
                         // add to db
-                        $sql = 'INSERT INTO news(txt, txt_en, od, do) VALUES ("'.$_POST['text'].'", "'.$_POST['text_en'].'", "'.$_POST['ftom'].'", "'.$_POST['to'].'")';
+                        $sql = 'INSERT INTO news(txt, txt_en, od, do) VALUES ("'.$_POST['text'].'", "'.$_POST['text_en'].'", "'.$_POST['from'].'", "'.$_POST['to'].'")';
                         if (mysqli_query($conn, $sql)) {
                             $status = 'success';
                             $html .= 'přidáno!<br><a href="/admin/news">[ok]</a>';
                         } else {
                             $status = 'error';
                             $html .= 'error: '.mysqli_error($conn).'<br>nepovedlo se!<br><a href="/admin/news/add">[zpět]</a>';
-                            $html .= 'txt = "'.$_POST['text'].'", txt_en = "'.$_POST['text_en'].'", od = "'.$_POST['from'].'", do = "'.$_POST['to'].'" WHERE id = '.$_POST['id'];
                         }
 
                     } else {
 
                         // form
                         $html .= '<form method="post" id="aktualitaForm">';
-                        $html .= 'Text [cz]: <input type="text" placeholder="text cz" name="text" maxlength="250"><br>';
-                        $html .= 'Text [en]: <input type="text" placeholder="text en" name="text_en" maxlength="250"><br>';
+                        $html .= 'Text [cz]: <input type="text" value="Design akce       5.—8. 9. 2020 / 13—21 h       Dům umění, Brno" name="text" maxlength="250"><br>';
+                        $html .= 'Text [en]: <input type="text" value="Design event       5.—8. 9. 2020 / 13—21 h       House of Arts, Brno" name="text_en" maxlength="250"><br>';
+                        $html .= $napoveda;
                         $html .= 'Od kdy: <input type="date" name="dateFrom"><br>';
                         $html .= 'Do kdy: <input type="date" name="dateTo"><br>';
-                        $html .= '<input type="submit" name="Přidat">';
+                        $html .= '<input type="submit" value="Přidat">';
                         $html .= '</form>';
 
                     }
@@ -112,6 +119,7 @@ if ($_SESSION['admin'] == true) {
                             $html .= '<form method="post" id="aktualitaForm" idnews="'.$news['id'].'">';
                             $html .= 'Text [cz]: <input type="text" placeholder="text cz" name="text" maxlength="250" value="'.$news['txt'].'"><br>';
                             $html .= 'Text [en]: <input type="text" placeholder="text en" name="text_en" maxlength="250" value="'.$news['txt_en'].'"><br>';
+                            $html .= $napoveda;
                             $html .= 'Od kdy: <input type="date" name="dateFrom" value="'.$news['od'].'"><br>';
                             $html .= 'Do kdy: <input type="date" name="dateTo" value="'.$news['do'].'"><br>';
                             $html .= '<input type="submit" value="Upravit">';
@@ -154,6 +162,9 @@ if ($_SESSION['admin'] == true) {
 
                     $html .= '<a href="/admin/news/add">[+]</a><br>';
                     
+                    // todays date
+                    $dnes = date("Y-m-d");
+
                     // set sql
                     $sql = 'SELECT * FROM news ORDER BY od DESC';
                     
@@ -167,7 +178,14 @@ if ($_SESSION['admin'] == true) {
                         $html .= '<tr><td>text</td><td>od</td><td>do</td><td>[akce]</td></tr>';
                         // fetch data to object and list them
                         while ($news = mysqli_fetch_array($ress)) {
-                            $html .= '<tr><td>'.$news['txt'].'</td><td>'.$news['od'].'</td><td>'.$news['do'].'</td><td><a href="/admin/news/e/'.$news['id'].'">[e]</a> <a href="/admin/news/del/'.$news['id'].'" class="del">[×]</a></td></tr>';
+                            
+                            $html .= '<tr';
+                            // test jestli se zobrazuje aktualne
+                            if ($news['od'] <= $dnes && $news['do'] >= $dnes) {
+                                $html .= ' class="active"';
+                            }
+                            $html .= '><td class="theTitle" title="[CZ]: '.$news['txt'].', [EN]: '.$news['txt_en'].'">'.substr($news['txt'], 0, 20).'</td><td>'.$news['od'].'</td><td>'.$news['do'].'</td><td><a href="/admin/news/e/'.$news['id'].'">[e]</a> <a href="/admin/news/del/'.$news['id'].'" class="remove">[×]</a></td></tr>';
+
                         }
                         $html .= '</table>';
 
