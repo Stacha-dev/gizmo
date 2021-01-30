@@ -41,3 +41,26 @@ function lang($cs, $en) {
   }
 
 }
+
+
+
+
+/*
+MySQL
+*/
+function sqlConn() {
+
+  $server = "localhost";
+  $login = "c9gizmo";
+  $pass = "qaR!JL8hn4";
+  $db = "c9gizmo";
+
+  $conn = new mysqli($server, $login, $pass, $db);
+
+  if ($conn->connect_error) {
+    return false;
+  } else {
+    return $conn;
+  }
+
+}

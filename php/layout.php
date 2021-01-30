@@ -18,10 +18,17 @@ echo '
     <meta name="viewport" content="width=device-width">
 
     <link rel="icon" href="/data/fav.png">
-    <link href="/css/main.css?v=0.9&release=beta" rel="stylesheet">
+    <link href="/css/main.css?v=0.91&release=beta" rel="stylesheet">
 
     <script src="/js/jq.js" type="text/javascript"></script>
-    <script src="/js/fce.js?v=0.8&release=beta" type="module"></script>
+    <script src="/js/fce.js?v=0.9&release=beta" type="module"></script>';
+
+    if ($_SESSION['admin'] == true) {
+      echo '<script src="/js/fce.admin.js" type="module"></script>';
+    }
+
+
+echo '
 
     <!-- 3d model viewer -->
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
