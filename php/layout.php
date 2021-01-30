@@ -10,11 +10,11 @@ echo '
     <meta charset="utf-8">
 
     <title>GIZ’MO LAB</title>
-    <meta name="keywords" content="3d fashion, fashion, digital, identities, animated catwalk, fashion week, transformer jacket">
+    <meta name="keywords" content="3d fashion, fashion, digital, Prague, identities, animated catwalk, fashion week, transformer jacket">
     <meta name="description" content="We design 3D apparel, accessories and jewelry.">
 
     <meta name="robots" content="all">
-    <meta name="author" content="Oliver Staša — Developer, Alina Matějová — Grafička">
+    <meta name="author" content="Oliver Staša — Developer, Alina Matějová — Designer">
     <meta name="viewport" content="width=device-width">
 
     <link rel="icon" href="/data/fav.png">
