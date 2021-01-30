@@ -2,3 +2,5 @@
 .remote-sync.json
 /data/*
 /stats/*
+/php/admin/login.php
+/php/fce.php
