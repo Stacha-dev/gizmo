@@ -2,13 +2,38 @@
 
 
 
+/*
+fce
+*/
+include '../fce.php';
+
+
+
 $imgs = array();
 $html = '';
+$conn = sqlConn();
+$dnes = date("Y-m-d");
+
+
+
+// get aktualitu
+$sql = 'SELECT * FROM news WHERE od <= "'.$dnes.'" AND do >= "'.$dnes.'"';
+// run sql
+$ress = mysqli_query($conn, $sql);
+// if there is any result
+if (mysqli_num_rows($ress) > 0) {
+
+    // fetch data to object
+    $news = mysqli_fetch_array($ress);
+    
+    $aktualita = '&nbsp;&nbsp;'.str_replace(" ", "&nbsp;", lang($news['txt'], $news['txt_en'])).'&nbsp;&nbsp;';
+
+}
 
 
 
 $text = str_replace(" ", "&nbsp;", '  DIGITAL FASHION       DESIGN VISUALISATION       ANIMATED CATWALK       DIGITAL IDENTITIES  ');
-$aktualita = str_replace(" ", "&nbsp;", '  Mercedes Benz Prague Fashion Week       5.—8. 9. 2020 / 13— 21 h       Holečkova 10, Praha 5  ');
+//$aktualita = str_replace(" ", "&nbsp;", '  Mercedes Benz Prague Fashion Week       5.—8. 9. 2020 / 13—21 h       Holečkova 10, Praha 5  ');
 
 
 
