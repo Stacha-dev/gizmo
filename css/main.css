@@ -26,8 +26,8 @@ blokace pro vertikalni zarizeni
 /*
 main
 */
-* {user-select: none; cursor: none !important;}
-html, body {padding: 0; margin: 0; font-family: "MeduimFK", monospace; font-display: swap; font-size: 3vh; background: white; overflow: hidden; width: 100vw; height: 100%; position: absolute;}
+* {user-select: none; cursor: none !important; font-display: fallback; }
+html, body {padding: 0; margin: 0; font-family: "MeduimFK", monospace; font-size: 3vh; background: white; overflow: hidden; width: 100vw; height: 100%; position: absolute;}
 
 ::selection {background: rgb(0, 255, 0);}
 
