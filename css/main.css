@@ -288,16 +288,24 @@ projekty
 
 
 
-  /*
-  admin
-  */
-  /* */
-  #admin, #admin * {cursor: default !important;}
-  #adminBody {padding: 2vh;}
-  .logout, .adminHome {position: absolute; top: 2vh; right: 2vh; font-size: 5vh;}
-  .logout {right: 7vh;}
-    .logout:hover, .adminHome:hover {color: blue;}
-  input {font-family: "MeduimFK", monospace; border: 0; border-bottom: 1vh solid gray; font-size: 2vh; padding: 1vh; outline: none; width: 30vh; max-width: 80vw; margin-bottom: 1vh;}
-  input:focus {outline: none; border-color: blue;}
-  input[type="submit"] {background: blue; color: white; border: 1vh solid blue; width: 32vh;}
-    input[type="submit"]:hover {background: red; border-color: red;}
+/*
+admin
+*/
+/* */
+#admin, #admin * {cursor: default !important;}
+#adminBody {padding: 2vh;}
+.logout, .adminHome {position: absolute; top: 2vh; right: 2vh; font-size: 5vh;}
+.logout {right: 7vh;}
+  .logout:hover, .adminHome:hover {color: blue;}
+input {font-family: "MeduimFK", monospace; border: 0; border-bottom: 1vh solid gray; font-size: 2vh; padding: 1vh; outline: none; width: 30vh; max-width: 80vw; margin-bottom: 1vh;}
+input:focus {outline: none; border-color: blue;}
+input[type="submit"] {background: blue; color: white; border: 1vh solid blue; width: 32vh;}
+  input[type="submit"]:hover {background: red; border-color: red;}
+  #aktualitaForm input[type="text"] {width: 100vh;}
+  #aktualitaForm i {font-size: 50%; color: gray; user-select: text !important;}
+#admin table {border-collapse: collapse;}
+#admin table tr td {padding: 1vh 2vh;}
+  #admin table tr:first-child td {color: gray; font-style: italic;}
+  #admin table tr td:first-child {padding-left: 0;}
+  #admin table tr td:last-child {padding-right: 0;}
+  #admin table tr.active td {background: rgb(0, 255, 0);}
