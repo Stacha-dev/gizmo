@@ -124,7 +124,7 @@ on blur disable music / on focus enable
 $(window).on('blur', function(){
 
   $('video').prop('muted', true);
-  $('video').each(function(){
+  $('#project video').each(function(){
     $(this)[0].pause();
   });
 
