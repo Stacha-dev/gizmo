@@ -22,6 +22,10 @@ $(document).on('submit', '#aktualitaForm', function(e){
         dateFrom = $('input[name="dateFrom"]').val(),
         dateTo = $('input[name="dateTo"]').val();
 
+
+        // replace unwanted chars
+        text = text.replace(/"/g, "'");
+        text_en = text_en.replace(/"/g, "'");
     
     
     // action to call in news.php
@@ -62,4 +66,24 @@ $(document).on('submit', '#aktualitaForm', function(e){
     // dont submit the form
     e.preventDefault();
 
+});
+
+
+
+/*
+remove page
+*/
+$(document).on('click', '.remove', function(e){
+
+    var title = $(this).closest('tr').find('.theTitle').html(),
+        ask = confirm('smazat "'+title+'"?');
+  
+    if (!ask) {
+  
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+  
+    }
+  
 });
