@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_POST['login'] == 'gizmi' && $_POST['pass'] == '19') {
+if ($_POST['login'] == 'gizmo' && $_POST['pass'] == 'r3HPWMStkscqCMRBF83A') {
 
   $_SESSION['admin'] = true;
   echo 'success';
