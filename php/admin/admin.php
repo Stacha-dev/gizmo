@@ -77,8 +77,8 @@ if ($_SESSION['admin'] == true) {
 
                         // form
                         $html .= '<form method="post" id="aktualitaForm">';
-                        $html .= 'Text [cz]: <input type="text" value="Design akce       5.—8. 9. 2020 / 13—21 h       Dům umění, Brno" name="text" maxlength="250"><br>';
-                        $html .= 'Text [en]: <input type="text" value="Design event       5.—8. 9. 2020 / 13—21 h       House of Arts, Brno" name="text_en" maxlength="250"><br>';
+                        $html .= 'Text [cz]: <input type="text" value="Design akce       5.—8. 9. 2020 / 13—21 h       Dům umění, Brno" name="text" maxlength="150"><br>';
+                        $html .= 'Text [en]: <input type="text" value="Design event       5.—8. 9. 2020 / 13—21 h       House of Arts, Brno" name="text_en" maxlength="150"><br>';
                         $html .= $napoveda;
                         $html .= 'Od kdy: <input type="date" name="dateFrom"><br>';
                         $html .= 'Do kdy: <input type="date" name="dateTo"><br>';
@@ -117,8 +117,8 @@ if ($_SESSION['admin'] == true) {
                             $news = mysqli_fetch_array($ress);
                             // form
                             $html .= '<form method="post" id="aktualitaForm" idnews="'.$news['id'].'">';
-                            $html .= 'Text [cz]: <input type="text" placeholder="text cz" name="text" maxlength="250" value="'.$news['txt'].'"><br>';
-                            $html .= 'Text [en]: <input type="text" placeholder="text en" name="text_en" maxlength="250" value="'.$news['txt_en'].'"><br>';
+                            $html .= 'Text [cz]: <input type="text" placeholder="text cz" name="text" maxlength="150" value="'.$news['txt'].'"><br>';
+                            $html .= 'Text [en]: <input type="text" placeholder="text en" name="text_en" maxlength="150" value="'.$news['txt_en'].'"><br>';
                             $html .= $napoveda;
                             $html .= 'Od kdy: <input type="date" name="dateFrom" value="'.$news['od'].'"><br>';
                             $html .= 'Do kdy: <input type="date" name="dateTo" value="'.$news['do'].'"><br>';
@@ -211,7 +211,7 @@ if ($_SESSION['admin'] == true) {
         break;
 
     }
-
+    
 
 
 // if not logged in
