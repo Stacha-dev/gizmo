@@ -38,7 +38,7 @@ $text = str_replace(" ", "&nbsp;", '  DIGITAL FASHION       DESIGN VISUALISATION
 
 
 $html .= '<div id="logo" class="center fadeup red"></div>';
-$html .= '<div id="homebg" class="center"><video autoplay loop muted class="center"><source src="/data/intro'.rand(1,2).'.mp4" type="video/mp4"></video></div>';
+$html .= '<div id="homebg" class="center"><video autoplay loop playsinline muted class="center"><source src="/data/intro'.rand(1,2).'.mp4" type="video/mp4"></video></div>';
 $html .= '<div id="patka">©GIZ’MO LAB '.date('Y').'</div>';
 if ($text) {
   $html .= '<div id="lista" class="textSlider hidden">'.$text.'</div>';
