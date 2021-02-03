@@ -18,10 +18,10 @@ echo '
     <meta name="viewport" content="width=device-width">
 
     <link rel="icon" href="/data/fav.png">
-    <link href="/css/main.css?v=0.94&release=1" rel="stylesheet">
+    <link href="/css/main.css?v=0.95&release=1" rel="stylesheet">
 
     <script src="/js/jq.js" type="text/javascript"></script>
-    <script src="/js/fce.js?v=0.92&release=1" type="module"></script>';
+    <script src="/js/fce.js?v=0.93&release=1" type="module"></script>';
 
     if ($_SESSION['admin'] == true) {
       echo '<script src="/js/fce.admin.js" type="module"></script>';
