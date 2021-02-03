@@ -219,7 +219,7 @@ setup pozice
 /*
 mobil menu
 */
-.burger {z-index: 99999; position: fixed; top: -2vh; right: 0; font-size: 10vh; color: black; padding: 3vh; mix-blend-mode: exclusion; color: white;}
+.burger {z-index: 99999; position: fixed; top: -2vh; right: 0; font-size: 10vh; color: black; padding: 3vh; mix-blend-mode: exclusion; color: white; transform: translate3d(0,0,0);}
   .mobilMenu {display: none; z-index: 99998; position: fixed; top: 0; left: 0; width: 100vw; height: 100%; background: rgba(255,255,255,0.75);}
   .mobilMenu ul {list-style: none; transform: translate(-50%, -50%); font-size: 10vh; margin: 0; text-align: center;}
 
