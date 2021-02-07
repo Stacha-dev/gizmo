@@ -79,7 +79,7 @@ export function setScroller(div) {
       vysledek = '';
 
   // namnozi text jak je potreba
-  for (var t = 0; t <= metr; t++) {
+  for (var tMulti = 0; tMulti <= metr; tMulti++) {
     vysledek = text+'&emsp;'+vysledek;
   }
 
@@ -141,7 +141,7 @@ export function isMobile(){
     if (!$('html, body').hasClass('mobile')){
       $('html, body').addClass('mobile');
       $('body').append($('<div>', {class: 'burger', html: '☰'}));
-      $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li><a href="https://www.instagram.com/gizmo.lab/" class="esc" target="_blank">instagram</a></ul>'));
+      $('body').append($('<div>', {class: 'mobilMenu'}).html('<ul class="center"><li href="/hello">HOME</li><li href="/about">ABOUT</li><li href="/contact">CONTACT</li><li href="/projects">WORK</li><a href="https://www.instagram.com/gizmo.lab/" rel="noreferrer" class="esc" target="_blank">instagram</a></ul>'));
       return true;
     }
   } else {
