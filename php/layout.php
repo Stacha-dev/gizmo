@@ -18,7 +18,7 @@ echo '
     <meta name="viewport" content="width=device-width">
 
     <link rel="icon" href="/data/fav.png">
-    <link href="/css/main.css?v=0.95&release=1" rel="stylesheet">
+    <link href="/css/main.css?v=0.96&release=1" rel="stylesheet">
 
     <script src="/js/jq.js" type="text/javascript"></script>
     <script src="/js/fce.js?v=0.93&release=1" type="module"></script>';
@@ -31,9 +31,9 @@ echo '
 echo '
 
     <!-- 3d model viewer -->
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script type="module" src="https://unpkg.com/focus-visible@5.1.0/dist/focus-visible.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js" rel="preload"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" rel="preload"></script>
+    <script type="module" src="https://unpkg.com/focus-visible@5.1.0/dist/focus-visible.js" rel="preload"></script>
     <!-- /3d model viewer -->
 
     <!-- google analytics -->
