@@ -91,8 +91,13 @@ $(document).on('mouseenter', '.navigNextProject', function(){
       $('.nextProject').addClass('on');
     }
 });
+$(document).on('mouseenter', '.navigHome', function(){
+  if (!$('.goHome').hasClass('on')) {
+    $('.goHome').addClass('on');
+  }
+});
 $(document).on('mouseleave', '.navig', function(){
-    $('.buttonContact, .buttonProjects, .buttonAbout, .nextProject').removeClass('on');
+    $('.buttonContact, .buttonProjects, .buttonAbout, .nextProject, .goHome').removeClass('on');
 });
 
 
@@ -152,10 +157,10 @@ $(document).on('wheel', function(){
     if (fromLeft > videoW/2*(-1) &&
         fromLeft+videoW*1.5 < scrollPrj+winW) {
       $(this)[0].play();
-      console.log('play');
+      //console.log('play');
     } else {
       $(this)[0].pause();
-      console.log('pause');
+      //console.log('pause');
     }
 
   });

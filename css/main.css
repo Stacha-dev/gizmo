@@ -277,6 +277,7 @@ projekty
   #nextProject {height: calc(92.5vh - 1vh); width: 15vw; display: block; top: 7.5vh; right: 0; position: fixed;}
     .navigNextProject {position: absolute; top: 0; right: 0; height: calc(92.5vh - 1vh) !important; background: linear-gradient(90deg, transparent 0%, rgba(0,255,0,1) 100%);}
     .nextProject {top: 50%; right: 0; line-height: 7.5vh;}
+    .goHome {top: 50%; left: 12vh;}
 
   #projectAbout, .info {position: absolute; color: white; z-index: 10; top: 15vh; left: 10vw; mix-blend-mode: exclusion;}
     .info {top: 24vh; text-decoration: underline;}

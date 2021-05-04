@@ -112,7 +112,7 @@ export function page(url) {
     $('body').append($('<div>', {id: 'about', class: 'home pg'}));
     $('body').append($('<div>', {id: 'projects', class: 'home pg'}));
     $('body').append($('<div>', {id: 'admin', class: 'home pg'}));
-    $('#projects').append('<div class="navig navigHome" href="/hello"></div>');
+    $('#projects').append('<div class="navig navigHome" href="/hello"><div class="button goHome">HOME</div></div>');
 
     // nahodi defaulty
     var file = '/php/page/home.php',

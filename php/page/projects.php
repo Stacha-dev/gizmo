@@ -52,58 +52,63 @@ projekt 1
 */
 switch ($id) {
   case 3:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj1/1_3d/mikina.glb', 'preload' => '/data/data/prj1/1_3d/thumb.jpg'],
-                 ['type' => 'video', 'data' => '/data/data/prj1/1.mp4'],
+    $prj_data = [//['type' => '3d', 'data' => '/data/data/prj1/1_3d/mikina.glb', 'preload' => '/data/data/prj1/1_3d/thumb.jpg'],
+                 ['type' => '3d', 'data' => '/data/data/prj1/2_3d/mikina6.glb', 'preload' => '/data/data/prj1/2_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj1/1.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/2.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/3.jpg'],
+                 //['type' => 'img', 'data' => '/data/data/prj1/2.jpg'],
+                 //['type' => 'img', 'data' => '/data/data/prj1/3.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj1/4.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj1/5.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/6.jpg'],
+                 //['type' => 'img', 'data' => '/data/data/prj1/6.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj1/7.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/8.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/9.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/10.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj1/11.jpg']];
+                 //['type' => 'img', 'data' => '/data/data/prj1/8.jpg'],
+                 //['type' => 'img', 'data' => '/data/data/prj1/9.jpg'],
+                 //['type' => 'img', 'data' => '/data/data/prj1/10.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj1/11.jpg'],
+                 ['type' => 'video', 'data' => '/data/data/prj1/1.mp4']];
     $prj_head = '<h1>HFCN</h1>';
     $prj_info_cz = '';
     $prj_info_en = 'Creative collaboration between fashion and graphic design, inspired by space exploration and utopian attempts at reaching outer worlds. Wearable garments reflect our vision of a true adventurer living in the modern world – beyond gender, age or size.<br><br>Fashion Design: Hana Frisonsova<br>Graphic Design: Creative Nights<br>3D Visuals and Animation: Zil J Vostalova';
   break;
 
   case 2:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj2/1_3d/PLAST_METAL.glb', 'preload' => '/data/data/prj2/1_3d/thumb.jpg'],
-                 ['type' => 'video', 'data' => '/data/data/prj2/1.mp4'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/5_3d/LING_ROZ_4.glb', 'preload' => '/data/data/prj2/2_3d/thumb.jpg'],
+    $prj_data = [['type' => '3d', 'data' => '/data/data/prj2/4_3d/lingerie_roza_300.glb', 'preload' => '/data/data/prj2/4_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/1.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/2_3d/LING_ROZ_5.glb', 'preload' => '/data/data/prj2/3_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/2.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/4_3d/lingerie_roza_300.glb', 'preload' => '/data/data/prj2/4_3d/thumb.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj2/3.png'],
-                 ['type' => '3d', 'data' => '/data/data/prj2/3_3d/LING_avatar2.glb', 'preload' => '/data/data/prj2/5_3d/thumb.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj2/4.png']];
+                 ['type' => 'img', 'data' => '/data/data/prj2/4.png'],
+                 ['type' => 'video', 'data' => '/data/data/prj2/1.mp4']
+                 //['type' => '3d', 'data' => '/data/data/prj2/1_3d/PLAST_METAL.glb', 'preload' => '/data/data/prj2/1_3d/thumb.jpg'],
+                 //['type' => '3d', 'data' => '/data/data/prj2/5_3d/LING_ROZ_4.glb', 'preload' => '/data/data/prj2/2_3d/thumb.jpg'],
+                 //['type' => '3d', 'data' => '/data/data/prj2/2_3d/LING_ROZ_5.glb', 'preload' => '/data/data/prj2/3_3d/thumb.jpg'],
+                 //['type' => '3d', 'data' => '/data/data/prj2/3_3d/LING_avatar2.glb', 'preload' => '/data/data/prj2/5_3d/thumb.jpg'],
+                 ];
     $prj_head = '<h1>PUT IT ON</h1>';
     $prj_info_cz = 'Instalace PUT IT ON představuje audiovizuální vstup ve formě augmentované reality, čímž vznikají nová propojení obsahu ve fyzickém i virtuálním prostředí. Dematerializovaná módní přehlídka odehrávající se na pomezí různých realit představuje efemérní moment zpřítomnění neviditelného a ilustruje intimní rovinu instalace. Projekt je zaměřen na prezentaci autorských skleněných a kovových oděvů vytvořených u příležitosti výstavy Caution: Contents Hot!.<br><br>Design: Helena Todd<br>Animace: Žil J. Vostalová<br>Hudba: Haruomi Hosono';
     $prj_info_en = 'The installation PUT IT ON represents an audio-visual contribution in the form of augmented reality creating new links between contents in physical and virtual environments. This dematerialized fashion show taking place on the boundary of different realities represents an ephemeral moment of visualizing the invisible and illustrates the intimate level of the installation. The project focuses on presenting author glass and metal clothes created for the occasion of the exhibition Caution: Contents Hot!.<br><br>Motion Design: Helena Todd<br>Animace: Žil J. Vostalová<br>Music: Haruomi Hosono';
   break;
 
   case 1:
-    $prj_data = [['type' => '3d', 'data' => '/data/data/prj3/1_3d/kosile.glb', 'preload' => '/data/data/prj3/1_3d/thumb.jpg'],
-                 ['type' => 'video', 'data' => '/data/data/prj3/1.mp4'],
-                 ['type' => 'video', 'data' => '/data/data/prj3/2.mp4'],
-                 ['type' => 'video', 'data' => '/data/data/prj3/3.mp4'],
-                 ['type' => 'video', 'data' => '/data/data/prj3/4.mp4'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/20.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/21.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/22.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/26.jpg'],
+    $prj_data = [['type' => '3d', 'data' => '/data/data/prj3/2_3d/satykriz_quads.glb', 'preload' => '/data/data/prj3/2_3d/thumb.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/29.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/27.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/28.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/29.jpg'],
+                 
+                 ['type' => 'video', 'data' => '/data/data/prj3/1.mp4'],
+                 ['type' => 'video', 'data' => '/data/data/prj3/3.mp4'],
+
+                 ['type' => 'img', 'data' => '/data/data/prj3/22.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/20.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/18.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/19.jpg'],
+                 
+                 //['type' => 'video', 'data' => '/data/data/prj3/2.mp4'],
+                 //['type' => 'video', 'data' => '/data/data/prj3/4.mp4'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/21.jpg'],
+                 ['type' => 'img', 'data' => '/data/data/prj3/26.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/30.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/31.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/32.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/18.jpg'],
-                 ['type' => 'img', 'data' => '/data/data/prj3/19.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/14.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/15.jpg'],
                  ['type' => 'img', 'data' => '/data/data/prj3/16.jpg'],
@@ -149,7 +154,7 @@ for ($i = 0; $i < sizeof($prj_data); $i++) {
       }
     break;
     case '3d':
-      $prj .= '<model-viewer class="model" src="'.$prj_data[$i]['data'].'" auto-rotate camera-controls poster="'.$prj_data[$i]['preload'].'"></model-viewer>';
+      $prj .= '<model-viewer class="model" src="'.$prj_data[$i]['data'].'" loading="eager" auto-rotate camera-controls poster="'.$prj_data[$i]['preload'].'"></model-viewer>';
     break;
   }
   $prj .= '</div>';
